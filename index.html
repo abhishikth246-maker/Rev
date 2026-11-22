@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b0e">
+<title>REVORA — 911 GT3 RS Configurator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">R</span><span>REVORA<small>REDEFINE YOUR DRIVE</small></span></a>
+  <div class="top-center">CONFIGURATOR <span> / </span> 911 GT3 RS</div>
+  <button id="resetTop" class="quiet-btn">↺ <span>Reset build</span></button>
+</header>
+<main class="layout">
+  <section class="stage">
+    <div class="stage-head">
+      <div><div class="eyebrow">THE DRIVER'S SPEC</div><h1>911 <em>GT3 RS</em></h1><p>Track-bred precision. Your signature.</p></div>
+      <div class="model-tag">992 <b>•</b> 2023</div>
+    </div>
+    <div id="viewer" class="viewer">
+      <div class="viewer-loading" id="loading"><span class="loader"></span><b>BUILDING YOUR 3D EXPERIENCE</b><small>Loading real-time configurator…</small></div>
+      <div class="view-tools"><button id="rotateBtn" class="tool active" title="Auto rotate" aria-pressed="true">↻</button><button id="frontBtn" class="tool" title="Front view">FRONT</button><button id="sideBtn" class="tool" title="Side view">SIDE</button><button id="rearBtn" class="tool" title="Rear view">REAR</button></div>
+      <div class="drag-hint">DRAG TO ROTATE <span>•</span> SCROLL TO ZOOM</div>
+      <div class="view-label">EXTERIOR VIEW <span>01 / 04</span></div>
+    </div>
+    <div class="stage-foot"><span><i class="live-dot"></i> LIVE 3D PREVIEW</span><span>INTERACTIVE MODEL · SKETCHFAB</span></div>
+  </section>
+  <aside class="config">
+    <div class="config-title"><div><div class="eyebrow">MAKE IT YOURS</div><h2>Build your <em>911.</em></h2></div><span class="step-count">01—04</span></div>
+    <nav class="tabs" aria-label="Configuration categories">
+      <button class="tab active" data-tab="paint"><span>01</span> Exterior</button><button class="tab" data-tab="wheels"><span>02</span> Wheels</button><button class="tab" data-tab="details"><span>03</span> Details</button><button class="tab" data-tab="stance"><span>04</span> Stance</button>
+    </nav>
+    <div class="panel active" id="paint">
+      <div class="section-head"><div><h3>Exterior colour</h3><p>Choose your finish</p></div><span class="selected-name" id="paintName">Arctic White</span></div>
+      <div class="swatches">
+        <button class="swatch selected" data-color="#e8e9e7" data-name="Arctic White" style="--swatch:#e8e9e7"><span></span><small>Arctic White</small></button>
+        <button class="swatch" data-color="#b50920" data-name="Guards Red" style="--swatch:#b50920"><span></span><small>Guards Red</small></button>
+        <button class="swatch" data-color="#092f59" data-name="Shark Blue" style="--swatch:#092f59"><span></span><small>Shark Blue</small></button>
+        <button class="swatch" data-color="#111315" data-name="Jet Black" style="--swatch:#111315"><span></span><small>Jet Black</small></button>
+        <button class="swatch" data-color="#a7a9a8" data-name="GT Silver" style="--swatch:#a7a9a8"><span></span><small>GT Silver</small></button>
+        <button class="swatch" data-color="#d5c9ad" data-name="Chalk" style="--swatch:#d5c9ad"><span></span><small>Chalk</small></button>
+        <button class="swatch" data-color="#174b3a" data-name="Python Green" style="--swatch:#174b3a"><span></span><small>Python Green</small></button>
+        <button class="swatch" data-color="#6b1833" data-name="Ruby Star" style="--swatch:#6b1833"><span></span><small>Ruby Star</small></button>
+      </div>
+      <div class="option-block"><div class="section-head"><div><h3>Paint finish</h3><p>Surface treatment</p></div></div><div class="choice-row"><button class="choice selected" data-finish="gloss">High gloss</button><button class="choice" data-finish="matte">Matte</button><button class="choice" data-finish="metallic">Metallic</button></div></div>
+    </div>
+    <div class="panel" id="wheels">
+      <div class="section-head"><div><h3>Wheel design</h3><p>Forged lightweight wheels</p></div></div>
+      <div class="wheel-options">
+        <button class="wheel-card selected" data-wheel="sport"><span class="wheel-icon sport-wheel"></span><b>RS Sport</b><small>Centre-lock · Satin black</small></button>
+        <button class="wheel-card" data-wheel="silver"><span class="wheel-icon silver-wheel"></span><b>GT Silver</b><small>Centre-lock · Silver</small></button>
+        <button class="wheel-card" data-wheel="gold"><span class="wheel-icon gold-wheel"></span><b>Neodyme</b><small>Centre-lock · Bronze</small></button>
+      </div>
+      <div class="option-block"><div class="section-head"><div><h3>Brake calipers</h3><p>Performance braking</p></div></div><div class="choice-row"><button class="choice selected" data-brake="#c7192d">Red</button><button class="choice" data-brake="#e0b84f">Gold</button><button class="choice" data-brake="#e7e7e7">Silver</button></div></div>
+    </div>
+    <div class="panel" id="details">
+      <div class="section-head"><div><h3>Exterior details</h3><p>Fine-tune the character</p></div></div>
+      <div class="toggle-line"><div><b>Carbon-fibre accents</b><small>Mirror caps and front splitter</small></div><label class="switch"><input id="carbon" type="checkbox" checked><span></span></label></div>
+      <div class="toggle-line"><div><b>Rear GT wing</b><small>High-downforce aero package</small></div><label class="switch"><input id="wing" type="checkbox" checked><span></span></label></div>
+      <div class="toggle-line"><div><b>Window tint</b><small>Dark privacy glass</small></div><label class="switch"><input id="tint" type="checkbox" checked><span></span></label></div>
+      <div class="toggle-line"><div><b>Front LED signature</b><small>White running lights</small></div><label class="switch"><input id="lights" type="checkbox" checked><span></span></label></div>
+    </div>
+    <div class="panel" id="stance">
+      <div class="section-head"><div><h3>Ride height</h3><p>Adjust the visual stance</p></div><span class="selected-name" id="heightValue">Sport</span></div>
+      <input id="height" class="range" type="range" min="-1" max="1" step="1" value="0">
+      <div class="range-labels"><span>LOW</span><span>SPORT</span><span>HIGH</span></div>
+      <div class="toggle-line"><div><b>Track setup</b><small>Lowered stance and wider visual track</small></div><label class="switch"><input id="track" type="checkbox"><span></span></label></div>
+      <div class="note">Ride-height controls are a visual configuration preview, not a mechanical simulation.</div>
+    </div>
+    <div class="build-summary">
+      <div class="summary-top"><div><div class="eyebrow">YOUR CONFIGURATION</div><h3>Build summary</h3></div><span class="build-status">LIVE</span></div>
+      <div class="summary-line"><span>Exterior</span><b id="sumPaint">Arctic White · High gloss</b></div>
+      <div class="summary-line"><span>Wheels</span><b id="sumWheel">RS Sport</b></div>
+      <div class="summary-line"><span>Details</span><b id="sumDetails">Carbon · GT Wing · Tint · LED</b></div>
+      <div class="summary-line"><span>Stance</span><b id="sumStance">Sport</b></div>
+      <div class="summary-actions"><button id="download" class="primary-btn">Download build sheet <span>↗</span></button><button id="share" class="secondary-btn">Copy configuration</button></div>
+      <p class="disclaimer">REVORA concept configurator. Independent project; not affiliated with Porsche AG. 3D model credit: Mona x Supercars / Sketchfab, CC BY 4.0. Some options may be limited by the model’s material/node structure.</p>
+    </div>
+  </aside>
+</main>
+<footer><span>REVORA © 2026</span><span>REDEFINE YOUR DRIVE</span><span>DESIGNED FOR THE DRIVE</span></footer>
+<script type="module" src="script.js"></script>
+</body>
+</html>
